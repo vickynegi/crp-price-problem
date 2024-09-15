@@ -1,0 +1,6 @@
+crypto_price_alert_job:
+  cron: '*/2 * * * * *' # 2 seconds day
+  class: 'CryptoPriceAlertJob'
+  args: []
+  queue: 'scheduler'
+  description: 'CryptoPriceAlertJob'

@@ -1,0 +1,10 @@
+default: &default
+  redis:
+    pool_size: 1
+    timeout: 5
+
+development:
+  <<: *default
+
+test:
+  <<: *default
