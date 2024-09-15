@@ -49,7 +49,7 @@ gem 'sidekiq'
 gem 'sidekiq-scheduler', '~> 5.0', '>= 5.0.3'
 gem 'redis'
 gem 'will_paginate', '~> 4.0'
-
+gem 'pg'
 
 
 group :development, :test do
@@ -66,6 +66,7 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+  gem "letter_opener"
 end
 
 group :test do
