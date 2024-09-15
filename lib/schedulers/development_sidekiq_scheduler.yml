@@ -1,6 +1,6 @@
 crypto_price_alert_job:
-  cron: '*/2 * * * * *' # 2 seconds day
+  cron: '*/15 * * * * *' # 2 seconds day
   class: 'CryptoPriceAlertJob'
   args: []
   queue: 'scheduler'
-  description: 'CryptoPriceAlertJob'
+  description: 'BTCUSDT Crypto price alert to users'

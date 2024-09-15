@@ -50,6 +50,9 @@ gem 'sidekiq-scheduler', '~> 5.0', '>= 5.0.3'
 gem 'redis'
 gem 'will_paginate', '~> 4.0'
 gem 'pg'
+## Link: https://clouddevs.com/ruby-on-rails/gems-for-real-time-communication/
+gem 'faye-websocket', '~> 0.11.3'
+gem 'eventmachine'
 
 
 group :development, :test do
