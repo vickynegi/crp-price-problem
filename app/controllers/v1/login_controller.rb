@@ -1,6 +1,6 @@
 class V1::LoginController < ApplicationController
   protect_from_forgery with: :null_session
-  # skip_before_action :auth_request!
+  skip_before_action :auth_request!
 
   ## User will sign in
   def create

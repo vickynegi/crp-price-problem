@@ -6,4 +6,7 @@ Rails.application.routes.draw do
   # get "up" => "rails/health#show", as: :rails_health_check
 
   post 'v1/sign_in' => 'v1/login#create'
+  post 'v1/alerts' => 'v1/alerts#create'
+  get 'v1/alerts' => 'v1/alerts#index'
+  delete 'v1/:id/alerts' => 'v1/alerts#destroy'
 end
