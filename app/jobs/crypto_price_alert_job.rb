@@ -2,6 +2,6 @@ class CryptoPriceAlertJob < ApplicationJob
   queue_as :default
 
   def perform(*args)
-    SendBinanceRealTimeDataUpdateToUserService.new.call
+    SendBinanceAlertToUserService.new.call
   end
 end

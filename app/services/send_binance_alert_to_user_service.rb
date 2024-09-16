@@ -1,10 +1,11 @@
 require 'faye/websocket'
 require 'eventmachine'
 
-class SendBinanceRealTimeDataUpdateToUserService
+class SendBinanceAlertToUserService
 
 	def initialize;end
 
+	## https://developers.binance.com/docs/binance-spot-api-docs/web-socket-streams
 	def call
 		EM.run {
 		  ws = Faye::WebSocket::Client.new('wss://stream.binance.com:9443/ws/btcusdt@aggTrade')
@@ -14,7 +15,7 @@ class SendBinanceRealTimeDataUpdateToUserService
 		  end
 
 		  ws.on :message do |event|
-		    JSON.parse(event.data)
+		    send_alert_to_users(event.data)
 		  end
 
 		  ws.on :close do |event|
@@ -22,5 +23,9 @@ class SendBinanceRealTimeDataUpdateToUserService
 		    ws = nil
 		  end
 		}
+	end
+
+	def send_alert_to_users(data)
+		SendTargetPriceAlertToUserViaEmailJob.perform_now(JSON.parse(data))
 	end
 end
