@@ -14,6 +14,15 @@ Prequisites:-
 Docker:-
 docker-compose up
 
+6) Manual Setup: - Run the following commands in terminal
+   a) bundle install
+   b) rails server
+   c) redis-server
+   d) sidekiq
+
+Note: After running the sidekiq, cronjob (crypto_price_alert_job) will run. This will hit the "CryptoPriceAlertJob" Job & call the "SendBinanceAlertToUserService" Service class which will fetch the Binance BTCUSDT data. This Service class will call another "SendTargetPriceAlertToUserViaEmailJob" Job which will update the status of alert & send the email to the users. I have integrated only "letter_opener" gem to send the email. 
+
+
 API Endpoints:-
 1) To create the users - Please enter this on terminal - rake db:seed
 
